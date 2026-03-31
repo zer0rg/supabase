@@ -75,10 +75,9 @@ services:
     image: kong/kong:3.9.1
     restart: unless-stopped
   networks:
-    - dokploy-network
-      default:
-        aliases:
-          - api-gw
+    dokploy-network:
+      aliases:
+        - api-gw
     healthcheck:
       test: ["CMD", "kong", "health"]
       interval: 5s
