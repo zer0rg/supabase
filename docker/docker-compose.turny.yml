@@ -1,24 +1,3 @@
-ｒｏｄｒｉｃｈｈ✨🌍
-.rodrichh
-En línea
-
-ｒｏｄｒｉｃｈｈ✨🌍
- ha añadido a 
-ThTrnxx
- al grupo. — 2/12/24, 21:10
-ｒｏｄｒｉｃｈｈ✨🌍
- ha iniciado una llamada que ha durado 5 horas. — 2/12/24, 21:10
-rootbutanon — 17:15
-# Usage
-#   Start:              docker compose up -d
-#   Stop:               docker compose down
-#   Dev mode:           docker compose -f docker-compose.yml -f ./dev/docker-compose.dev.yml up -d
-#   Reset everything:  ./reset.sh
-#
-
-docker-compose-turny.yml
-23 KB
-﻿
 # Usage
 #   Start:              docker compose up -d
 #   Stop:               docker compose down
