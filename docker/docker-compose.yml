@@ -6,7 +6,9 @@
 #
 
 name: supabase
-
+networks:
+  dokploy-network:
+    driver: overlay
 services:
 
   studio:
@@ -72,10 +74,9 @@ services:
     container_name: supabase-kong
     image: kong/kong:3.9.1
     restart: unless-stopped
-    networks:
+  networks:
+    - dokploy-network
       default:
-        external:
-          name: dokploy-network
         aliases:
           - api-gw
     healthcheck:
