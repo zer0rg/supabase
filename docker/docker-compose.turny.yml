@@ -584,7 +584,7 @@ services:
     restart: unless-stopped
     ports:
       - ${POSTGRES_PORT}:5432
-      - ${POOLER_PROXY_PORT_TRANSACTION}:6543
+      - ${POOLER_PROXY_PORT_TRANSACTION}:6544
     volumes:
       - ./volumes/pooler/pooler.exs:/etc/pooler/pooler.exs:ro,z
     healthcheck:
