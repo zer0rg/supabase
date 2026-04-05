@@ -631,5 +631,8 @@ services:
       ]
 
 volumes:
+  anpe_db_data_prod:
+    external: true
+    name: anpe_db_data_prod
   db-config:
   deno-cache:
