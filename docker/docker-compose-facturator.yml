@@ -497,6 +497,10 @@ services:
     container_name: facturator-supabase-db
     image: supabase/postgres:15.8.1.085
     restart: unless-stopped
+    networks:
+      dokploy-network:
+        aliases:
+          - facturator-supabase-db
     volumes:
       - ./volumes/db/realtime.sql:/docker-entrypoint-initdb.d/migrations/99-realtime.sql:Z
       # Must be superuser to create event trigger
@@ -582,6 +586,10 @@ services:
     container_name: facturator-supabase-pooler
     image: supabase/supavisor:2.7.4
     restart: unless-stopped
+    networks:
+      dokploy-network:
+        aliases:
+          - facturator-supabase-pooler
     ports:
       - ${POSTGRES_PORT}:5432
       - ${POOLER_PROXY_PORT_TRANSACTION}:6543
