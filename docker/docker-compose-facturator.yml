@@ -498,6 +498,7 @@ services:
     image: supabase/postgres:15.8.1.085
     restart: unless-stopped
     networks:
+      default:
       dokploy-network:
         aliases:
           - facturator-supabase-db
@@ -587,6 +588,7 @@ services:
     image: supabase/supavisor:2.7.4
     restart: unless-stopped
     networks:
+      default:
       dokploy-network:
         aliases:
           - facturator-supabase-pooler
