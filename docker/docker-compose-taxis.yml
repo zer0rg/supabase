@@ -6,9 +6,6 @@
 #
 
 name: supabase
-networks:
-  dokploy-network:
-    external: true
 services:
 
   studio:
@@ -74,10 +71,6 @@ services:
     container_name: taxis-supabase-kong
     image: kong/kong:3.9.1
     restart: unless-stopped
-    networks:
-      dokploy-network:
-        aliases:
-          - api-gw
     healthcheck:
       test: ["CMD", "kong", "health"]
       interval: 5s
@@ -497,11 +490,6 @@ services:
     container_name: taxis-supabase-db
     image: supabase/postgres:15.8.1.085
     restart: unless-stopped
-    networks:
-      default:
-      dokploy-network:
-        aliases:
-          - taxis-supabase-db
     volumes:
       - ./volumes/db/realtime.sql:/docker-entrypoint-initdb.d/migrations/99-realtime.sql:Z
       # Must be superuser to create event trigger
@@ -587,11 +575,6 @@ services:
     container_name: taxis-supabase-pooler
     image: supabase/supavisor:2.7.4
     restart: unless-stopped
-    networks:
-      default:
-      dokploy-network:
-        aliases:
-          - taxis-supabase-pooler
     ports:
       - ${POSTGRES_PORT}:5432
       - ${POOLER_PROXY_PORT_TRANSACTION}:6543
