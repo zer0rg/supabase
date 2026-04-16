@@ -68,7 +68,7 @@ services:
       EDGE_FUNCTIONS_MANAGEMENT_FOLDER: /app/edge-functions
     volumes:
       - ./volumes/snippets:/app/snippets:Z
-      - /opt/anpe/supabase/functions:/home/deno/functions:Z
+      - /opt/anpe/supabase/functions:/app/edge-functions:Z
 
   kong:
     container_name: supabase-kong
@@ -418,7 +418,7 @@ services:
     image: supabase/edge-runtime:v1.71.2
     restart: unless-stopped
     volumes:
-      - ./volumes/functions:/home/deno/functions:Z
+      - /opt/anpe/supabase/functions:/home/deno/functions:Z
       - deno-cache:/root/.cache/deno
     depends_on:
       kong:
